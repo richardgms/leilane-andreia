@@ -137,7 +137,7 @@ export const Header = () => {
                                         {item.label}
                                     </Typography>
                                 ))}
-                                <CustomButton variant="outlined" size="small" href="https://wa.me/" target="_blank">
+                                <CustomButton variant="outlined" size="small" href={`https://wa.me/5583999563338?text=${encodeURIComponent("Olá! Vim pelo seu site e gostaria de agendar um horário.")}`} target="_blank">
                                     Agendar
                                 </CustomButton>
                             </Box>

@@ -136,7 +136,7 @@ export const AboutSection = () => {
                             </Box>
 
                             <CustomButton
-                                href="https://wa.me/5583999563338?text=Olá! Gostaria de agendar uma avaliação."
+                                href={`https://wa.me/5583999563338?text=${encodeURIComponent("Olá! Vim pelo seu site e gostaria de agendar uma avaliação com a Leilane.")}`}
                                 target="_blank"
                                 sx={{
                                     py: 2,

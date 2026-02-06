@@ -144,7 +144,7 @@ export const TestimonialsSection = () => {
 
                 <Box sx={{ mt: 8, textAlign: 'center' }}>
                     <CustomButton
-                        href="https://wa.me/5583999563338?text=Olá! Vi os resultados e quero agendar meu horário."
+                        href={`https://wa.me/5583999563338?text=${encodeURIComponent("Olá! Vim pelo seu site e gostaria de ser a próxima transformação.")}`}
                         target="_blank"
                         sx={{
                             bgcolor: 'primary.main',

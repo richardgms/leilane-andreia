@@ -132,7 +132,7 @@ export const HeroSection = () => {
                         >
                             <CustomButton
                                 size="large"
-                                onClick={() => window.open('https://wa.me/', '_blank')}
+                                onClick={() => window.open(`https://wa.me/5583999563338?text=${encodeURIComponent("Olá! Vim pelo seu site e gostaria de agendar um horário de autocuidado.")}`, '_blank')}
                             // Optional: Outline style on mobile? Or stick to default gold/black?
                             // Default contained button matches the "Option B" look well.
                             >

@@ -216,6 +216,9 @@ export const ServicesSection = () => {
 
                                     <Box sx={{ mt: 'auto', pt: 1 }}>
                                         <Typography
+                                            component="a"
+                                            href={`https://wa.me/5583999563338?text=${encodeURIComponent(`Olá! Vim pelo seu site e gostaria de saber mais sobre o serviço de ${service.title}.`)}`}
+                                            target="_blank"
                                             variant="button"
                                             sx={{
                                                 fontSize: '0.75rem',
@@ -223,6 +226,7 @@ export const ServicesSection = () => {
                                                 color: 'secondary.main',
                                                 letterSpacing: '0.1em',
                                                 cursor: 'pointer',
+                                                textDecoration: 'none',
                                                 '&:hover': {
                                                     textDecoration: 'underline'
                                                 }
@@ -240,7 +244,7 @@ export const ServicesSection = () => {
 
             <Box sx={{ mt: 8, textAlign: 'center' }}>
                 <CustomButton
-                    href="https://wa.me/5583999563338?text=Olá! Gostaria de saber mais sobre os serviços."
+                    href={`https://wa.me/5583999563338?text=${encodeURIComponent("Olá! Vim pelo seu site e gostaria de saber mais sobre os serviços.")}`}
                     target="_blank"
                     variant="outlined"
                     sx={{

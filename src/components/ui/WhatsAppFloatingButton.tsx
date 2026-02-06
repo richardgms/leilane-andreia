@@ -6,7 +6,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { motion } from 'framer-motion';
 
 export const WhatsAppFloatingButton = () => {
-    const whatsappUrl = "https://wa.me/5583999563338";
+    const whatsappUrl = "https://wa.me/5583999563338?text=" + encodeURIComponent("Olá! Vim pelo seu site e gostaria de agendar um horário.");
 
     return (
         <Box

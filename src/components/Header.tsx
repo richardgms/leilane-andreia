@@ -44,7 +44,7 @@ export const Header = () => {
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', height: '100%', bgcolor: '#FAF9F6', pt: 4 }}>
             <Box sx={{ mb: 4, display: 'flex', justifyContent: 'center' }}>
                 <Box sx={{ position: 'relative', width: 100, height: 100 }}>
-                    <Image src="/images/logocomfundo.png" alt="Logo" fill style={{ objectFit: 'contain' }} />
+                    <Image src="/images/logocomfundo.webp" alt="Logo" fill style={{ objectFit: 'contain' }} />
                 </Box>
             </Box>
             <List>
@@ -87,7 +87,7 @@ export const Header = () => {
                                 <Box sx={{ position: 'relative', width: { xs: 50, md: 60 }, height: { xs: 50, md: 60 } }}>
                                     {/* Assuming logosemfundo is better for header */}
                                     <Image
-                                        src="/images/logosemfundopreto.png"
+                                        src="/images/header-logo.webp"
                                         alt="LA Clinic Studio"
                                         fill
                                         style={{ objectFit: 'contain' }}

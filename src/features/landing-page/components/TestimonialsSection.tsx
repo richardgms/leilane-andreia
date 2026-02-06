@@ -4,6 +4,7 @@ import React from 'react';
 import { Box, Typography, Grid, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
 import { SectionContainer } from '@/components/ui/SectionContainer';
+import { CustomButton } from '@/components/ui/CustomButton';
 import { Quote } from 'lucide-react';
 
 const testimonials = [
@@ -140,6 +141,22 @@ export const TestimonialsSection = () => {
                         </Grid>
                     ))}
                 </Grid>
+
+                <Box sx={{ mt: 8, textAlign: 'center' }}>
+                    <CustomButton
+                        href="https://wa.me/5583999563338?text=Olá! Vi os resultados e quero agendar meu horário."
+                        target="_blank"
+                        sx={{
+                            bgcolor: 'primary.main',
+                            color: 'white',
+                            '&:hover': {
+                                bgcolor: 'primary.dark'
+                            }
+                        }}
+                    >
+                        Seja a Próxima Transformação
+                    </CustomButton>
+                </Box>
             </SectionContainer>
         </Box>
     );

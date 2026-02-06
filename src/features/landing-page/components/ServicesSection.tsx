@@ -6,49 +6,94 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Sparkles, Heart, Scissors, Eye, PenTool, Flower, GraduationCap } from 'lucide-react';
 import { SectionContainer } from '@/components/ui/SectionContainer';
+import { ImageSlider } from './ImageSlider';
+import { CustomButton } from '@/components/ui/CustomButton';
 
 const services = [
     {
         icon: <Sparkles size={24} />,
         title: 'Epilação',
         description: 'Técnica delicada e humanizada para uma pele suave e bem cuidada.',
-        image: '/images/services/epilacao.png'
+        image: '/images/services/epilacao.webp',
+        sliderImages: [
+            '/images/services/epilacao-antes.webp',
+            '/images/services/epilacao-depois.webp'
+        ],
+        showBadges: true
     },
     {
         icon: <Heart size={24} />,
         title: 'Maquiagem',
         description: 'Realce sua beleza natural com produções elegantes para qualquer ocasião.',
-        image: '/images/services/maquiagem.png'
+        image: '/images/services/maquiagem.webp',
+        sliderImages: [
+            '/images/services/maquiagem-1.webp',
+            '/images/services/maquiagem-2.webp',
+            '/images/services/maquiagem-3.webp',
+            '/images/services/maquiagem-4.webp',
+            '/images/services/maquiagem-5.webp'
+        ]
     },
     {
         icon: <Scissors size={24} />,
         title: 'Penteado',
-        description: 'Design capilar sofisticado para transformar seu visual em momentos especiais.',
-        image: '/images/services/penteado.png'
+        description: 'Penteados exclusivos para festas, casamentos e ocasiões especiais.',
+        image: '/images/services/penteado.webp',
+        sliderImages: [
+            '/images/services/penteado-1.webp',
+            '/images/services/penteado-2.webp'
+        ]
     },
     {
         icon: <Eye size={24} />,
         title: 'Sobrancelhas',
         description: 'Design estratégico que harmoniza e valoriza o seu olhar.',
-        image: '/images/services/sobrancelha.png'
+        image: '/images/services/sobrancelha.webp',
+        sliderImages: [
+            '/images/services/sobrancelha1antes.webp',
+            '/images/services/sobrancelha1depois.webp',
+            '/images/services/sobrancelha2antes.webp',
+            '/images/services/sobrancelha2depois.webp',
+            '/images/services/sobrancelha3antes.webp',
+            '/images/services/sobrancelha3depois.webp'
+        ],
+        showBadges: true
     },
     {
         icon: <PenTool size={24} />,
         title: 'Micropigmentação',
         description: 'Procedimentos semi-permanentes para sobrancelhas e lábios perfeitos.',
-        image: '/images/services/micropigmentacao.png'
+        image: '/images/services/micropigmentacao.webp',
+        sliderImages: [
+            '/images/services/sobrancelhas-1.webp',
+            '/images/services/sobrancelhas-2.webp',
+            '/images/services/sobrancelhas-3.webp',
+            '/images/services/sobrancelhas-4.webp'
+        ]
     },
     {
         icon: <Flower size={24} />,
-        title: 'Limpeza de pele',
-        description: 'Tratamentos faciais profundos para uma pele renovada e saudável.',
-        image: '/images/services/limpeza_pele.png'
+        title: 'Limpeza de Pele',
+        description: 'Renovação e purificação profunda para uma pele saudável, radiante e livre de impurezas.',
+        image: '/images/services/limpeza_pele.webp',
+        sliderImages: [
+            '/images/services/limpeza-pele-1.webp',
+            '/images/services/limpeza-pele-1-extra.webp',
+            '/images/services/limpeza-pele-2.webp',
+            '/images/services/limpeza-pele-antes.webp',
+            '/images/services/limpeza-pele-depois.webp'
+        ],
+        showBadges: true
     },
     {
         icon: <GraduationCap size={24} />,
         title: 'Cursos VIP',
         description: 'Treinamentos exclusivos para profissionais que buscam excelência e novas técnicas.',
-        image: '/images/services/cursos_vip.png'
+        image: '/images/services/cursos_vip.webp',
+        sliderImages: [
+            '/images/services/curso-vip-1.webp',
+            '/images/services/cursos_vip.webp'
+        ]
     },
 ];
 
@@ -116,16 +161,27 @@ export const ServicesSection = () => {
                                             bgcolor: 'grey.100'
                                         }}
                                     >
-                                        <Image
-                                            src={service.image}
-                                            alt={service.title}
-                                            fill
-                                            style={{ objectFit: 'cover' }}
-                                            onError={(e: any) => {
-                                                // Fallback if image doesn't exist
-                                                e.currentTarget.style.display = 'none';
-                                            }}
-                                        />
+                                        {/* @ts-ignore - dynamic property check */}
+                                        {service.sliderImages ? (
+                                            <ImageSlider
+                                                // @ts-ignore
+                                                images={service.sliderImages}
+                                                alt={service.title}
+                                                // @ts-ignore
+                                                showBadges={service.showBadges}
+                                            />
+                                        ) : (
+                                            <Image
+                                                src={service.image}
+                                                alt={service.title}
+                                                fill
+                                                style={{ objectFit: 'cover' }}
+                                                onError={(e: any) => {
+                                                    // Fallback if image doesn't exist
+                                                    e.currentTarget.style.display = 'none';
+                                                }}
+                                            />
+                                        )}
                                     </Box>
                                     {/* Icon Overlay (Optional for style) */}
                                     <Box
@@ -181,6 +237,24 @@ export const ServicesSection = () => {
                     </Grid>
                 ))}
             </Grid>
+
+            <Box sx={{ mt: 8, textAlign: 'center' }}>
+                <CustomButton
+                    href="https://wa.me/5583999563338?text=Olá! Gostaria de saber mais sobre os serviços."
+                    target="_blank"
+                    variant="outlined"
+                    sx={{
+                        borderColor: 'secondary.main',
+                        color: 'primary.main',
+                        '&:hover': {
+                            borderColor: 'primary.main',
+                            bgcolor: 'rgba(212,175,55,0.05)'
+                        }
+                    }}
+                >
+                    Agendar meu Momento de Autocuidado
+                </CustomButton>
+            </Box>
         </SectionContainer>
     );
 };

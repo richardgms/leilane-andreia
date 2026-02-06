@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Providers from '@/components/Providers';
 import { Header } from '@/components/Header';
+import { WhatsAppFloatingButton } from '@/components/ui/WhatsAppFloatingButton';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           {children}
+          <WhatsAppFloatingButton />
         </Providers>
       </body>
     </html>

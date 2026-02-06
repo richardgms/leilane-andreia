@@ -24,7 +24,7 @@ export const HeroSection = () => {
             {/* Mobile Background Image & Overlay (Option B Style) */}
             <Box sx={{ position: 'absolute', inset: 0, zIndex: 0, display: { xs: 'block', md: 'none' } }}>
                 <Image
-                    src="/images/sobremim.png"
+                    src="/images/sobremim.webp"
                     alt="Background"
                     fill
                     style={{ objectFit: 'cover', objectPosition: 'center 20%' }}
@@ -146,7 +146,7 @@ export const HeroSection = () => {
                         sx={{
                             flex: 1,
                             position: 'relative',
-                            height: { xs: '400px', md: '600px' },
+                            height: { xs: '400px', md: '750px' },
                             width: '100%',
                             display: { xs: 'none', md: 'flex' }, // HIDDEN ON MOBILE
                             justifyContent: 'center',
@@ -162,7 +162,7 @@ export const HeroSection = () => {
                                 position: 'relative',
                                 width: '100%',
                                 height: '100%',
-                                maxWidth: '500px',
+                                maxWidth: '650px',
                             }}
                         >
                             {/* Image backing/accent */}
@@ -172,8 +172,8 @@ export const HeroSection = () => {
                                     bottom: 0,
                                     left: '50%',
                                     transform: 'translateX(-50%)',
-                                    width: '80%',
-                                    height: '70%',
+                                    width: '90%',
+                                    height: '75%',
                                     border: '2px solid #D4AF37',
                                     borderRadius: '200px 200px 0 0',
                                     opacity: 0.3,
@@ -181,7 +181,7 @@ export const HeroSection = () => {
                                 }}
                             />
                             <Image
-                                src="/images/hero.png"
+                                src="/images/hero.webp"
                                 alt="Leilane Andreia"
                                 fill
                                 style={{ objectFit: 'contain', objectPosition: 'bottom' }}

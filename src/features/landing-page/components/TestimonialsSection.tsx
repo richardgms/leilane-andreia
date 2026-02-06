@@ -127,10 +127,10 @@ export const TestimonialsSection = () => {
                                         <Typography
                                             variant="caption"
                                             sx={{
-                                                color: 'secondary.main',
+                                                color: 'text.secondary',
                                                 textTransform: 'uppercase',
                                                 letterSpacing: '0.1em',
-                                                fontWeight: 500
+                                                fontWeight: 600
                                             }}
                                         >
                                             {item.treatment}

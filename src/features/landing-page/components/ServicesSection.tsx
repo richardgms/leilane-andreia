@@ -9,7 +9,17 @@ import { SectionContainer } from '@/components/ui/SectionContainer';
 import { ImageSlider } from './ImageSlider';
 import { CustomButton } from '@/components/ui/CustomButton';
 
-const services = [
+// Define strict interface for Service items
+interface Service {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+    image: string;
+    sliderImages?: string[]; // Optional, strictly string array
+    showBadges?: boolean;    // Optional boolean
+}
+
+const services: Service[] = [
     {
         icon: <Sparkles size={24} />,
         title: 'Epilação',
@@ -161,13 +171,11 @@ export const ServicesSection = () => {
                                             bgcolor: 'grey.100'
                                         }}
                                     >
-                                        {/* @ts-ignore - dynamic property check */}
-                                        {service.sliderImages ? (
+                                        {/* Render slider if images exist, otherwise single image */}
+                                        {service.sliderImages && service.sliderImages.length > 0 ? (
                                             <ImageSlider
-                                                // @ts-ignore
                                                 images={service.sliderImages}
                                                 alt={service.title}
-                                                // @ts-ignore
                                                 showBadges={service.showBadges}
                                             />
                                         ) : (
@@ -176,14 +184,14 @@ export const ServicesSection = () => {
                                                 alt={service.title}
                                                 fill
                                                 style={{ objectFit: 'cover' }}
-                                                onError={(e: any) => {
-                                                    // Fallback if image doesn't exist
+                                                onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                                                    // Safe fallback for image loading errors
                                                     e.currentTarget.style.display = 'none';
                                                 }}
                                             />
                                         )}
                                     </Box>
-                                    {/* Icon Overlay (Optional for style) */}
+                                    {/* Icon Overlay */}
                                     <Box
                                         sx={{
                                             position: 'absolute',

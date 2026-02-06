@@ -8,6 +8,12 @@ import { ChevronDown } from 'lucide-react';
 import { CustomButton } from '@/components/ui/CustomButton';
 import { SectionContainer } from '@/components/ui/SectionContainer';
 
+const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8 }
+};
+
 export const HeroSection = () => {
     return (
         <Box
@@ -80,9 +86,9 @@ export const HeroSection = () => {
                         }}
                     >
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
+                            initial={fadeInUp.initial}
+                            animate={fadeInUp.animate}
+                            transition={{ ...fadeInUp.transition, delay: 0.2 }}
                         >
                             <Box sx={{ position: 'relative', display: 'inline-block', mb: 1 }}>
                                 <Typography variant="overline" sx={{ letterSpacing: '0.2em', color: 'secondary.main', fontWeight: 600 }}>
@@ -92,9 +98,9 @@ export const HeroSection = () => {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
+                            initial={fadeInUp.initial}
+                            animate={fadeInUp.animate}
+                            transition={{ ...fadeInUp.transition, delay: 0.4 }}
                         >
                             <Typography variant="h1" sx={{
                                 fontSize: { xs: '2.5rem', md: '4rem' },
@@ -109,9 +115,9 @@ export const HeroSection = () => {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.6 }}
+                            initial={fadeInUp.initial}
+                            animate={fadeInUp.animate}
+                            transition={{ ...fadeInUp.transition, delay: 0.6 }}
                         >
                             <Typography variant="body1" sx={{
                                 maxWidth: '500px',
@@ -126,9 +132,9 @@ export const HeroSection = () => {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.8 }}
+                            initial={fadeInUp.initial}
+                            animate={fadeInUp.animate}
+                            transition={{ ...fadeInUp.transition, delay: 0.8 }}
                         >
                             <CustomButton
                                 size="large"

@@ -26,15 +26,11 @@ function HideOnScroll(props: { children: React.ReactElement }) {
 
 export const Header = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    // Use useScrollTrigger for meaningful scroll detection
+    const scrolled = useScrollTrigger({
+        disableHysteresis: true,
+        threshold: 50,
+    });
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);

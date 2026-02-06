@@ -3,44 +3,52 @@
 import React from 'react';
 import { Box, Paper, Typography, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Sparkles, Heart, Scissors, Eye, PenTool, Flower, GraduationCap } from 'lucide-react';
 import { SectionContainer } from '@/components/ui/SectionContainer';
 
 const services = [
     {
-        icon: <Sparkles size={32} />,
+        icon: <Sparkles size={24} />,
         title: 'Epilação',
         description: 'Técnica delicada e humanizada para uma pele suave e bem cuidada.',
+        image: '/images/services/epilacao.png'
     },
     {
-        icon: <Heart size={32} />,
+        icon: <Heart size={24} />,
         title: 'Maquiagem',
         description: 'Realce sua beleza natural com produções elegantes para qualquer ocasião.',
+        image: '/images/services/maquiagem.png'
     },
     {
-        icon: <Scissors size={32} />,
+        icon: <Scissors size={24} />,
         title: 'Penteado',
         description: 'Design capilar sofisticado para transformar seu visual em momentos especiais.',
+        image: '/images/services/penteado.png'
     },
     {
-        icon: <Eye size={32} />,
+        icon: <Eye size={24} />,
         title: 'Sobrancelhas',
         description: 'Design estratégico que harmoniza e valoriza o seu olhar.',
+        image: '/images/services/sobrancelha.png'
     },
     {
-        icon: <PenTool size={32} />,
+        icon: <PenTool size={24} />,
         title: 'Micropigmentação',
         description: 'Procedimentos semi-permanentes para sobrancelhas e lábios perfeitos.',
+        image: '/images/services/micropigmentacao.png'
     },
     {
-        icon: <Flower size={32} />,
+        icon: <Flower size={24} />,
         title: 'Limpeza de pele',
         description: 'Tratamentos faciais profundos para uma pele renovada e saudável.',
+        image: '/images/services/limpeza_pele.png'
     },
     {
-        icon: <GraduationCap size={32} />,
+        icon: <GraduationCap size={24} />,
         title: 'Cursos VIP',
         description: 'Treinamentos exclusivos para profissionais que buscam excelência e novas técnicas.',
+        image: '/images/services/cursos_vip.png'
     },
 ];
 
@@ -58,7 +66,7 @@ export const ServicesSection = () => {
                         NOSSAS ESPECIALIDADES
                     </Typography>
                     <Typography variant="h2" sx={{ mt: 1, mb: 2 }}>
-                        Cuidado Especializado
+                        Cuidado Completo Para Você
                     </Typography>
                     <Box sx={{ width: '60px', height: '3px', bgcolor: 'secondary.main', mx: 'auto' }} />
                 </motion.div>
@@ -68,8 +76,8 @@ export const ServicesSection = () => {
                 {services.map((service, index) => (
                     <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index} sx={{ display: 'flex' }}>
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             style={{ width: '100%', display: 'flex' }}
@@ -77,56 +85,96 @@ export const ServicesSection = () => {
                             <Paper
                                 elevation={0}
                                 sx={{
-                                    p: 4,
                                     height: '100%',
                                     width: '100%',
                                     display: 'flex',
                                     flexDirection: 'column',
-                                    alignItems: 'center',
-                                    textAlign: 'center',
-                                    border: '1px solid rgba(0,0,0,0.05)',
-                                    borderRadius: '16px',
-                                    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                                    bgcolor: '#fafafa',
+                                    textAlign: 'left',
+                                    border: '1px solid rgba(0,0,0,0.08)',
+                                    borderRadius: '8px',
+                                    overflow: 'hidden',
+                                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                                     '&:hover': {
-                                        transform: 'translateY(-12px)',
-                                        boxShadow: '0 20px 40px rgba(0,0,0,0.05)',
+                                        transform: 'translateY(-10px)',
+                                        boxShadow: '0 20px 40px rgba(0,0,0,0.08)',
                                         borderColor: 'secondary.main',
-                                        bgcolor: '#ffffff',
-                                        '& .icon-box': {
-                                            bgcolor: 'secondary.main',
-                                            color: 'white',
-                                            transform: 'rotate(5deg) scale(1.1)',
+                                        '& .service-image': {
+                                            transform: 'scale(1.05)',
                                         }
                                     }
                                 }}
                             >
-                                <Box
-                                    className="icon-box"
-                                    sx={{
-                                        width: 80,
-                                        height: 80,
-                                        borderRadius: '50%',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        bgcolor: 'rgba(212, 175, 55, 0.1)',
-                                        color: 'secondary.main',
-                                        mb: 3,
-                                        transition: 'all 0.3s ease',
-                                    }}
-                                >
-                                    {service.icon}
+                                {/* Service Image Container */}
+                                <Box sx={{ position: 'relative', height: 220, overflow: 'hidden' }}>
+                                    <Box
+                                        className="service-image"
+                                        sx={{
+                                            position: 'relative',
+                                            width: '100%',
+                                            height: '100%',
+                                            transition: 'transform 0.6s ease',
+                                            bgcolor: 'grey.100'
+                                        }}
+                                    >
+                                        <Image
+                                            src={service.image}
+                                            alt={service.title}
+                                            fill
+                                            style={{ objectFit: 'cover' }}
+                                            onError={(e: any) => {
+                                                // Fallback if image doesn't exist
+                                                e.currentTarget.style.display = 'none';
+                                            }}
+                                        />
+                                    </Box>
+                                    {/* Icon Overlay (Optional for style) */}
+                                    <Box
+                                        sx={{
+                                            position: 'absolute',
+                                            top: 16,
+                                            right: 16,
+                                            width: 40,
+                                            height: 40,
+                                            borderRadius: '50%',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            bgcolor: 'rgba(255, 255, 255, 0.9)',
+                                            color: 'secondary.main',
+                                            backdropFilter: 'blur(4px)',
+                                            boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+                                            zIndex: 2
+                                        }}
+                                    >
+                                        {service.icon}
+                                    </Box>
                                 </Box>
-                                <Typography variant="h5" sx={{ mb: 2, fontWeight: 700, color: 'text.primary' }}>
-                                    {service.title}
-                                </Typography>
-                                <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                                    {service.description}
-                                </Typography>
 
-                                <Box sx={{ mt: 'auto', pt: 3 }}>
-                                    <Box sx={{ width: '20px', height: '2px', bgcolor: 'secondary.main', mx: 'auto', display: 'none' }} />
+                                <Box sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                                    <Typography variant="h5" sx={{ mb: 1.5, fontWeight: 700, fontSize: '1.25rem' }}>
+                                        {service.title}
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary" sx={{ mb: 3, lineHeight: 1.6 }}>
+                                        {service.description}
+                                    </Typography>
+
+                                    <Box sx={{ mt: 'auto', pt: 1 }}>
+                                        <Typography
+                                            variant="button"
+                                            sx={{
+                                                fontSize: '0.75rem',
+                                                fontWeight: 600,
+                                                color: 'secondary.main',
+                                                letterSpacing: '0.1em',
+                                                cursor: 'pointer',
+                                                '&:hover': {
+                                                    textDecoration: 'underline'
+                                                }
+                                            }}
+                                        >
+                                            Saiba Mais
+                                        </Typography>
+                                    </Box>
                                 </Box>
                             </Paper>
                         </motion.div>

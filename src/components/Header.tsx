@@ -72,7 +72,8 @@ export const Header = () => {
                         bgcolor: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
                         backdropFilter: scrolled ? 'blur(10px)' : 'none',
                         transition: 'all 0.3s ease',
-                        py: 1
+                        py: 1,
+                        width: '100%',
                     }}
                 >
                     <Container maxWidth="lg">

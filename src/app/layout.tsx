@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Providers from '@/components/Providers';
 import { Header } from '@/components/Header';
 import { WhatsAppFloatingButton } from '@/components/ui/WhatsAppFloatingButton';
@@ -31,6 +31,13 @@ export const metadata: Metadata = {
     shortcut: '/images/logocomfundoredondo.webp',
     apple: '/images/logocomfundoredondo.webp',
   },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({

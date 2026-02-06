@@ -9,6 +9,8 @@ body {
   background-color: #F5F5F0;
   /* Off-white consistency */
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 a {

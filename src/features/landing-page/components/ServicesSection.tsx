@@ -60,10 +60,6 @@ const services: Service[] = [
         description: 'Design estratégico que harmoniza e valoriza o seu olhar.',
         image: '/images/services/sobrancelha.webp',
         sliderImages: [
-            '/images/services/sobrancelha1antes.webp',
-            '/images/services/sobrancelha1depois.webp',
-            '/images/services/sobrancelha2antes.webp',
-            '/images/services/sobrancelha2depois.webp',
             '/images/services/sobrancelha3antes.webp',
             '/images/services/sobrancelha3depois.webp'
         ],
@@ -75,11 +71,12 @@ const services: Service[] = [
         description: 'Procedimentos semi-permanentes para sobrancelhas e lábios perfeitos.',
         image: '/images/services/micropigmentacao.webp',
         sliderImages: [
-            '/images/services/sobrancelhas-1.webp',
-            '/images/services/sobrancelhas-2.webp',
-            '/images/services/sobrancelhas-3.webp',
-            '/images/services/sobrancelhas-4.webp'
-        ]
+            '/images/services/sobrancelha1antes.webp',
+            '/images/services/sobrancelha1depois.webp',
+            '/images/services/sobrancelha2antes.webp',
+            '/images/services/sobrancelha2depois.webp'
+        ],
+        showBadges: true
     },
     {
         icon: <Flower size={24} />,
